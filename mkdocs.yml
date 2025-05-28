@@ -1,0 +1,18 @@
+site_name: Shreshtha Modi
+
+site_description: Personal portfolio showcasing my education, experience, projects, and contact info.
+
+theme:
+  name: dracula
+
+nav:
+  - Home: index.md
+  - Education: education.md
+  - Experience: experience.md
+  - Projects: project.md
+  - Additional Info: info.md
+ 
+
+extra_css:
+  - styles/extra.css
+
