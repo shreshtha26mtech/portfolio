@@ -1,16 +1,25 @@
 /* =========================================================================
    OLD-WEB / RSS-READER THEME  ·  custom overrides for the MkDocs dracula theme
-   Palettes switch via  <html data-palette="...">  (see palette.js).
-   Vibe: narrow column, serif body, monospace headers, underlined links,
-   thin ruled boxes — like a 90s personal homepage / feed reader.
+   Single fixed palette (light, old-web). Narrow column, serif body,
+   monospace headers, underlined links, thin ruled boxes.
    ========================================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
-/* ---- Palettes ----------------------------------------------------------- */
-/* "classic" is the default light old-web look; the rest are CRT palettes.   */
+/* Dark is the default (also the pre-JS fallback to avoid a flash) */
 :root,
-html[data-palette="classic"] {
+html[data-theme="dark"] {
+  --bg:        #14130f;
+  --bg-alt:    #1c1a15;
+  --fg:        #e6e1d3;
+  --fg-dim:    #9a9484;
+  --accent:    #e07a5f;
+  --accent-2:  #e9b44c;
+  --border:    #353026;
+  --link:      #7fb0e0;
+}
+
+html[data-theme="light"] {
   --bg:        #f4f1e8;
   --bg-alt:    #fbf9f2;
   --fg:        #2b2a26;
@@ -21,37 +30,26 @@ html[data-palette="classic"] {
   --link:      #1a4f8a;
 }
 
-html[data-palette="green"] {
-  --bg:        #0a0e0a;
-  --bg-alt:    #0f150f;
-  --fg:        #c7f0c7;
-  --fg-dim:    #6f9c6f;
-  --accent:    #33ff66;
-  --accent-2:  #00cc44;
-  --border:    #1f3a1f;
-  --link:      #33ff66;
+/* Dark-mode toggle button (built by theme.js) */
+#theme-toggle {
+  position: fixed;
+  top: 64px;
+  right: 18px;
+  z-index: 9999;
+  background: var(--bg-alt);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+  padding: 7px 12px;
+  cursor: pointer;
 }
-
-html[data-palette="amber"] {
-  --bg:        #100a02;
-  --bg-alt:    #170f04;
-  --fg:        #f0d6a0;
-  --fg-dim:    #a8804a;
-  --accent:    #ffb000;
-  --accent-2:  #ff7b00;
-  --border:    #3a2a10;
-  --link:      #ffb000;
-}
-
-html[data-palette="blue"] {
-  --bg:        #04081a;
-  --bg-alt:    #070d24;
-  --fg:        #cdd9ff;
-  --fg-dim:    #6679b8;
-  --accent:    #5fa8ff;
-  --accent-2:  #8a6fff;
-  --border:    #18244a;
-  --link:      #8ec5ff;
+#theme-toggle:hover { border-color: var(--accent) !important; color: var(--accent-2); }
+@media (max-width: 760px) {
+  #theme-toggle { top: auto; bottom: 16px; right: 12px; }
 }
 
 /* ---- Base --------------------------------------------------------------- */
@@ -91,9 +89,9 @@ h2 {
   padding-bottom: 0.3rem;
   margin-top: 2.2rem;
 }
-h3 { font-size: 1.1rem !important; color: var(--accent-2) !important; }
+h3 { font-size: 1.1rem !important; }
 
-/* ---- Links: underlined, old-web blue (palette-driven) ------------------- */
+/* ---- Links: underlined, old-web blue ----------------------------------- */
 a, a.drac-anchor {
   color: var(--link) !important;
   text-decoration: underline !important;
@@ -121,8 +119,7 @@ a:hover, .drac-text-purple--hover:hover {
 .navbar a:hover { color: var(--accent) !important; text-decoration: underline !important; }
 
 /* ---- Kill leftover dracula gradients / clashing colours ----------------- */
-.navbar-toggler,
-.navbar-toggler-icon,
+.navbar-toggler, .navbar-toggler-icon,
 .drac-bg-purple, .drac-bg-purple-cyan, .drac-bg-cyan-green,
 .drac-bg-cyan, .drac-bg-green, .drac-bg-orange, .drac-bg-pink,
 .drac-bg-red, .drac-bg-yellow {
@@ -134,8 +131,6 @@ a:hover, .drac-text-purple--hover:hover {
   border-radius: 0 !important;
   color: var(--accent) !important;
 }
-/* the little decorative nav dots */
-.dot-li { background: var(--accent) !important; border-radius: 0 !important; }
 
 /* ---- Search input ------------------------------------------------------- */
 .drac-input, .drac-input-search {
@@ -155,34 +150,11 @@ a:hover, .drac-text-purple--hover:hover {
 }
 
 /* ---- Dividers ----------------------------------------------------------- */
-.divider, .drac-divider, hr {
+.divider, .drac-divider, hr, nav.divider, .divider.drac-bg-purple-cyan {
   background: var(--border) !important;
+  background-image: none !important;
   border: 0 !important;
   height: 1px !important;
-}
-
-/* ---- Prev / Next + footer ---------------------------------------------- */
-.btn, .drac-btn, .btn-primary {
-  background: var(--bg-alt) !important;
-  color: var(--accent) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: 0 !important;
-  font-family: 'JetBrains Mono', monospace !important;
-  text-transform: lowercase;
-}
-.btn:hover, .drac-btn:hover, .btn-primary:hover {
-  border-color: var(--accent) !important;
-  color: var(--accent-2) !important;
-}
-.footer-text, .drac-text-black { color: var(--fg-dim) !important; }
-
-/* ---- Code --------------------------------------------------------------- */
-code, pre, kbd {
-  background: var(--bg-alt) !important;
-  color: var(--accent-2) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: 0 !important;
-  font-family: 'JetBrains Mono', monospace !important;
 }
 
 ::selection { background: var(--accent); color: var(--bg); }
@@ -193,22 +165,42 @@ code, pre, kbd {
 .centered-page {
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
-  min-height: 60vh; text-align: center;
+  min-height: 50vh; text-align: center;
   font-size: 1.05rem; line-height: 1.75;
+  padding: 2.5rem 1rem;
+  max-width: 680px;
+  margin: 0 auto;
 }
 .centered-page img[alt="Profile Photo"] {
+  width: 128px !important;
+  height: 128px !important;
+  object-fit: cover;
   border-radius: 0 !important;
   border: 1px solid var(--border) !important;
-  filter: grayscale(35%);
+  padding: 4px;
+  background: var(--bg-alt);
 }
-.centered-page .drac-box,
-.centered-page > div:last-of-type > div {
-  background: var(--bg-alt) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  color: var(--fg) !important;
-  font-family: Georgia, serif !important;
+
+/* Social icons in the sidebar (injected by theme.js) */
+#sidebar-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+#sidebar-socials a {
+  color: var(--fg-dim) !important;
+  text-decoration: none !important;
+  display: inline-flex;
+  line-height: 0;
+  transition: color 0.12s, transform 0.12s;
+}
+#sidebar-socials a:hover {
+  color: var(--accent) !important;
+  background: transparent !important;
+  transform: translateY(-2px);
 }
 
 /* =========================================================================
@@ -243,114 +235,54 @@ code, pre, kbd {
 .blog-card .blog-brief { color: var(--fg) !important; font-size: 0.95rem; margin: 0; }
 
 /* =========================================================================
-   Paint-palette colour chooser (built by palette.js) — top-right, always on
+   Left sidebar — match the light palette (no more hard black)
    ========================================================================= */
-#palette-chooser {
-  position: fixed;
-  top: 64px;
-  right: 18px;
-  z-index: 9999;
-  width: 110px;
-  height: 86px;
-  background: var(--bg-alt);
-  border: 2px solid var(--border);
-  /* organic artist's-palette blob */
-  border-radius: 56% 60% 58% 62% / 64% 60% 64% 56%;
-  box-shadow: 2px 3px 0 var(--border);
-}
-/* the thumb hole */
-#palette-chooser::after {
-  content: "";
-  position: absolute;
-  width: 16px; height: 16px;
-  right: 12px; bottom: 12px;
-  background: var(--bg);
-  border: 2px solid var(--border);
-  border-radius: 50%;
-}
-#palette-chooser .pc-dots {
-  position: absolute;
-  inset: 0;
-  padding: 12px 14px;
-}
-#palette-chooser .pc-swatch {
-  position: absolute;
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  border: 2px solid rgba(0,0,0,0.35);
-  cursor: pointer;
-  padding: 0;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
-  transition: transform 0.1s;
-}
-#palette-chooser .pc-swatch:hover { transform: scale(1.18); }
-#palette-chooser .pc-swatch[aria-pressed="true"] {
-  outline: 2px solid var(--fg);
-  outline-offset: 1px;
-}
-/* dab the four paint blobs around the palette */
-#palette-chooser .pc-swatch:nth-child(1) { top: 14px; left: 16px; }
-#palette-chooser .pc-swatch:nth-child(2) { top: 12px; left: 50px; }
-#palette-chooser .pc-swatch:nth-child(3) { top: 40px; left: 14px; }
-#palette-chooser .pc-swatch:nth-child(4) { top: 42px; left: 46px; }
-
-#palette-chooser .pc-swatch[data-palette="classic"] { background: #f4f1e8; }
-#palette-chooser .pc-swatch[data-palette="green"]   { background: #33ff66; }
-#palette-chooser .pc-swatch[data-palette="amber"]   { background: #ffb000; }
-#palette-chooser .pc-swatch[data-palette="blue"]    { background: #5fa8ff; }
-
-@media (max-width: 760px) {
-  #palette-chooser { top: auto; bottom: 16px; right: 12px; }
-}
-
-/* =========================================================================
-   Fix leftover dracula chrome so light + dark palettes stay consistent
-   ========================================================================= */
-
-/* ---- Left sidebar: match the palette instead of hard black ------------- */
-nav.sidebar,
-.sidebar.drac-bg-black {
+nav.sidebar, .sidebar.drac-bg-black {
   background: var(--bg-alt) !important;
   border-right: 1px solid var(--border) !important;
 }
-.sidebar h1,
-.sidebar .drac-text-center,
-.sidebar h1 .logo,
-.sidebar h1 .logo span {
+.sidebar .p-4 { padding: 1.5rem 1.25rem !important; }
+.sidebar h1, .sidebar .drac-text-center, .sidebar h1 .logo, .sidebar h1 .logo span {
   color: var(--accent) !important;
   font-family: 'JetBrains Mono', monospace !important;
+  font-size: 1.2rem !important;
+  margin-bottom: 1.25rem !important;
 }
+.sidebar ul { margin-bottom: 0 !important; }
 .sidebar ul li a {
   color: var(--fg) !important;
   border-bottom: 1px solid var(--border) !important;
   text-decoration: none !important;
   font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.9rem !important;
+  padding: 0.55rem 0.25rem !important;
+  margin: 0 !important;
 }
 .sidebar ul li a:hover { color: var(--accent) !important; text-decoration: underline !important; }
+.sidebar ul li:last-child a { border-bottom: 0 !important; }
 .sidebar .drac-box { background: transparent !important; border: 0 !important; }
 
-/* The decorative coloured square row under the name — drop it for cleanliness */
+/* Drop the decorative coloured square row under the name */
 .dot-ul { display: none !important; }
 
-/* ---- Hamburger toggle: remove the rotated coloured diamond ------------- */
+/* Hamburger toggle: clean square, no coloured diamond */
 .custom-menu .btn.btn-primary:after { display: none !important; }
-.custom-menu .btn,
-.custom-menu .btn.btn-primary {
+.custom-menu .btn, .custom-menu .btn.btn-primary {
   background: var(--bg-alt) !important;
   border: 1px solid var(--border) !important;
   border-radius: 0 !important;
-  width: 44px !important;
-  height: 44px !important;
+  width: 44px !important; height: 44px !important;
 }
 .custom-menu .btn i { color: var(--accent) !important; }
 
-/* The thin sidebar/content divider */
-.divider, nav.divider, .divider.drac-bg-purple-cyan {
-  background: var(--border) !important;
-  background-image: none !important;
+/* On desktop the sidebar is always open, so the floating toggle is redundant */
+@media (min-width: 992px) {
+  .custom-menu { display: none !important; }
 }
 
-/* ---- Previous / Next / Search: keep them on one tidy row --------------- */
+/* =========================================================================
+   Previous / Next / Search — one tidy row, icon + label inline
+   ========================================================================= */
 .row.row-preview {
   display: flex !important;
   flex-wrap: nowrap !important;
@@ -364,51 +296,8 @@ nav.sidebar,
   max-width: none !important;
 }
 .row.row-preview .search-box { flex: 1 1 0; display: flex; }
-.btn-preview,
-.btn-preview:disabled { width: 100% !important; }
 .search-box .drac-input { width: 100% !important; }
 
-/* ---- Hide the "Made with Dracula Theme for MkDocs" credit bar ---------- */
-.border-top.drac-bg-cyan-green { display: none !important; }
-
-/* =========================================================================
-   Social links (home page) — plain text, bracketed, palette-aware
-   ========================================================================= */
-.socials {
-  margin-top: 2.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.4rem 1.4rem;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.95rem;
-}
-.socials a {
-  color: var(--link) !important;
-  text-decoration: none !important;
-}
-.socials a::before { content: "["; color: var(--fg-dim); }
-.socials a::after  { content: "]"; color: var(--fg-dim); }
-.socials a:hover { color: var(--accent) !important; text-decoration: underline !important; }
-
-/* =========================================================================
-   Sidebar layout polish + button consistency
-   ========================================================================= */
-.sidebar .p-4 { padding: 1.5rem 1.25rem !important; }
-.sidebar h1, .sidebar .drac-text-center {
-  font-size: 1.2rem !important;
-  margin-bottom: 1.25rem !important;
-  letter-spacing: 0.02em;
-}
-.sidebar ul { margin-bottom: 0 !important; }
-.sidebar ul li a {
-  padding: 0.55rem 0.25rem !important;
-  margin: 0 !important;
-  font-size: 0.9rem !important;
-}
-.sidebar ul li:last-child a { border-bottom: 0 !important; }
-
-/* Unify every button (prev/next/search) to one clean style */
 .btn, .drac-btn, .btn-primary, .btn-preview {
   background: var(--bg-alt) !important;
   color: var(--accent) !important;
@@ -417,7 +306,6 @@ nav.sidebar,
   font-family: 'JetBrains Mono', monospace !important;
   font-size: 0.85rem !important;
   text-transform: lowercase !important;
-  padding: 0.6rem 0.9rem !important;
   box-shadow: none !important;
   transition: border-color 0.12s, color 0.12s;
 }
@@ -426,7 +314,20 @@ nav.sidebar,
   color: var(--accent-2) !important;
   background: var(--bg-alt) !important;
 }
+/* keep arrow + label on one centered line */
+.btn-preview {
+  width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.45rem !important;
+  white-space: nowrap !important;
+  padding: 0.65rem 0.9rem !important;
+}
 .btn-preview.disabled, .btn-preview:disabled {
   opacity: 0.45 !important;
   color: var(--fg-dim) !important;
 }
+
+/* ---- Hide the "Made with Dracula Theme for MkDocs" credit bar ---------- */
+.border-top.drac-bg-cyan-green { display: none !important; }

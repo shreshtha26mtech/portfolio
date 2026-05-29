@@ -1,28 +1,25 @@
 # Blog
 
-<p style="color: var(--fg-dim); margin-top:-0.5rem;">
-Notes on ML, NLP, optimization, and whatever else I'm tinkering with.
-Posts live on <a href="https://shreshtha.hashnode.dev/" target="_blank">Hashnode</a>.
-</p>
-
 <div class="blog-list">
 
-  <!-- Duplicate one .blog-card block per post. Update the href, meta, title, brief. -->
+  <!-- To add a post: copy one .blog-card block and update href, meta, title, brief. -->
 
-  <a class="blog-card" href="https://shreshtha.hashnode.dev/" target="_blank">
-    <span class="blog-meta">— · — · —</span>
-    <span class="blog-title">Read all posts on Hashnode</span>
-    <p class="blog-brief">My full archive of writing lives on Hashnode. Click through to browse everything.</p>
+  <a class="blog-card" href="https://shreshtha.hashnode.dev/how-to-access-census-data-in-r" target="_blank">
+    <span class="blog-meta">R · Data</span>
+    <span class="blog-title">How to Access Census Data in R</span>
+    <p class="blog-brief">Pulling and working with census datasets directly from R for analysis and visualization.</p>
   </a>
 
-  <!--
-  Example of a real post card — copy this, fill it in, and remove the comment markers:
-
-  <a class="blog-card" href="https://shreshtha.hashnode.dev/your-post-slug" target="_blank">
-    <span class="blog-meta">2026 · 5 min read</span>
-    <span class="blog-title">Your Post Title Here</span>
-    <p class="blog-brief">A one-line summary of what the post is about.</p>
+  <a class="blog-card" href="https://shreshtha.hashnode.dev/introduction-to-the-linux-boot-process" target="_blank">
+    <span class="blog-meta">Linux</span>
+    <span class="blog-title">Introduction to the Linux Boot Process</span>
+    <p class="blog-brief">A walk through what actually happens between power-on and login — BIOS/UEFI, bootloader, kernel, and init.</p>
   </a>
-  -->
+
+  <a class="blog-card" href="https://shreshtha.hashnode.dev/a-beginners-guide-to-fine-tuning-language-models-without-a-gpu" target="_blank">
+    <span class="blog-meta">ML · NLP</span>
+    <span class="blog-title">A Beginner's Guide to Fine-Tuning Language Models Without a GPU</span>
+    <p class="blog-brief">Practical fine-tuning of language models on modest hardware — no GPU required.</p>
+  </a>
 
 </div>

@@ -1,7 +1,7 @@
 <!-- Profile Header -->
 <div class="centered-page">
-  <div style="display: flex; align-items: center; gap: 12px; justify-content: center;">
-    <img src="shresh_website.jpg" alt="Profile Photo" style="width: 70px; height: 80px; border-radius: 50%; object-fit: cover;">
+  <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; margin-bottom: 8px;">
+    <img src="shresh_website.jpg" alt="Profile Photo">
     <h3 style="font-size: 24px; margin: 0;">
       <span class="wave">👋</span> Hi there!
     </h3>
@@ -24,14 +24,6 @@
     <strong>playing chess</strong>.
   </p>
 
-  <!-- Socials: plain text links that adapt to the active palette -->
-  <nav class="socials">
-    <a href="mailto:modishreshtha48@gmail.com">email</a>
-    <a href="https://linkedin.com/in/shreshthamodi" target="_blank">linkedin</a>
-    <a href="https://github.com/shreshtha48" target="_blank">github</a>
-    <a href="https://www.kaggle.com/shreshthamodi" target="_blank">kaggle</a>
-    <a href="https://shreshtha.hashnode.dev/" target="_blank">blog</a>
-  </nav>
 </div>
 
 <!-- Wave animation -->
@@ -43,10 +35,13 @@
   }
 
   @keyframes wave {
-    0% { transform: rotate(0deg); }
-    10% { transform: rotate(14deg); }
-    20% { transform: rotate(-8deg); }
-    30% { transform: rotate(14deg); }
-    40% { transform: rotate(-4deg); }
-    50% { transform: rotate(10deg); }
-    60% {
+    0%   { transform: rotate(0deg); }
+    10%  { transform: rotate(14deg); }
+    20%  { transform: rotate(-8deg); }
+    30%  { transform: rotate(14deg); }
+    40%  { transform: rotate(-4deg); }
+    50%  { transform: rotate(10deg); }
+    60%  { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+  }
+</style>
