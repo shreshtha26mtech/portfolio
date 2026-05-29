@@ -1,9 +1,432 @@
+/* =========================================================================
+   OLD-WEB / RSS-READER THEME  ·  custom overrides for the MkDocs dracula theme
+   Palettes switch via  <html data-palette="...">  (see palette.js).
+   Vibe: narrow column, serif body, monospace headers, underlined links,
+   thin ruled boxes — like a 90s personal homepage / feed reader.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+/* ---- Palettes ----------------------------------------------------------- */
+/* "classic" is the default light old-web look; the rest are CRT palettes.   */
+:root,
+html[data-palette="classic"] {
+  --bg:        #f4f1e8;
+  --bg-alt:    #fbf9f2;
+  --fg:        #2b2a26;
+  --fg-dim:    #6f6b5e;
+  --accent:    #9a2b1f;
+  --accent-2:  #c25a1c;
+  --border:    #cfc8b4;
+  --link:      #1a4f8a;
+}
+
+html[data-palette="green"] {
+  --bg:        #0a0e0a;
+  --bg-alt:    #0f150f;
+  --fg:        #c7f0c7;
+  --fg-dim:    #6f9c6f;
+  --accent:    #33ff66;
+  --accent-2:  #00cc44;
+  --border:    #1f3a1f;
+  --link:      #33ff66;
+}
+
+html[data-palette="amber"] {
+  --bg:        #100a02;
+  --bg-alt:    #170f04;
+  --fg:        #f0d6a0;
+  --fg-dim:    #a8804a;
+  --accent:    #ffb000;
+  --accent-2:  #ff7b00;
+  --border:    #3a2a10;
+  --link:      #ffb000;
+}
+
+html[data-palette="blue"] {
+  --bg:        #04081a;
+  --bg-alt:    #070d24;
+  --fg:        #cdd9ff;
+  --fg-dim:    #6679b8;
+  --accent:    #5fa8ff;
+  --accent-2:  #8a6fff;
+  --border:    #18244a;
+  --link:      #8ec5ff;
+}
+
+/* ---- Base --------------------------------------------------------------- */
+html, body,
+body.drac-bg-black-secondary {
+  background: var(--bg) !important;
+  color: var(--fg) !important;
+  font-family: Georgia, 'Times New Roman', 'Iowan Old Style', serif !important;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.drac-text, .drac-text-grey-ternary, .drac-text-white,
+p, li, span, td, th, label, blockquote {
+  color: var(--fg) !important;
+}
+
+/* Narrow reading column, like an old homepage / feed reader */
+.content, .section-content, .container, .container-fluid {
+  max-width: 820px !important;
+}
+.section-content { padding-left: 1rem; padding-right: 1rem; }
+
+/* ---- Headings: monospace, ruled underline (classic article style) ------- */
+h1, h2, h3, h4, h5, h6, .drac-text-white {
+  font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+  color: var(--accent) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.3;
+}
+h1 { font-size: 1.9rem !important; }
+h2 {
+  font-size: 1.35rem !important;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 0.3rem;
+  margin-top: 2.2rem;
+}
+h3 { font-size: 1.1rem !important; color: var(--accent-2) !important; }
+
+/* ---- Links: underlined, old-web blue (palette-driven) ------------------- */
+a, a.drac-anchor {
+  color: var(--link) !important;
+  text-decoration: underline !important;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+a:hover, .drac-text-purple--hover:hover {
+  color: var(--accent) !important;
+  background: var(--bg-alt);
+}
+
+/* ---- Navbar: thin top bar, plain text links ----------------------------- */
+.navbar.drac-bg-purple {
+  background: var(--bg-alt) !important;
+  border-bottom: 1px solid var(--border) !important;
+  box-shadow: none !important;
+}
+.navbar a, .navbar .nav-item a {
+  color: var(--fg) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.82rem;
+  text-decoration: none !important;
+  text-transform: lowercase;
+}
+.navbar a:hover { color: var(--accent) !important; text-decoration: underline !important; }
+
+/* ---- Kill leftover dracula gradients / clashing colours ----------------- */
+.navbar-toggler,
+.navbar-toggler-icon,
+.drac-bg-purple, .drac-bg-purple-cyan, .drac-bg-cyan-green,
+.drac-bg-cyan, .drac-bg-green, .drac-bg-orange, .drac-bg-pink,
+.drac-bg-red, .drac-bg-yellow {
+  background: transparent !important;
+  background-image: none !important;
+}
+.navbar-toggler {
+  border: 1px solid var(--accent) !important;
+  border-radius: 0 !important;
+  color: var(--accent) !important;
+}
+/* the little decorative nav dots */
+.dot-li { background: var(--accent) !important; border-radius: 0 !important; }
+
+/* ---- Search input ------------------------------------------------------- */
+.drac-input, .drac-input-search {
+  background: var(--bg-alt) !important;
+  color: var(--fg) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ---- Boxes / cards ------------------------------------------------------ */
+.drac-box {
+  background: var(--bg-alt) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* ---- Dividers ----------------------------------------------------------- */
+.divider, .drac-divider, hr {
+  background: var(--border) !important;
+  border: 0 !important;
+  height: 1px !important;
+}
+
+/* ---- Prev / Next + footer ---------------------------------------------- */
+.btn, .drac-btn, .btn-primary {
+  background: var(--bg-alt) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  text-transform: lowercase;
+}
+.btn:hover, .drac-btn:hover, .btn-primary:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent-2) !important;
+}
+.footer-text, .drac-text-black { color: var(--fg-dim) !important; }
+
+/* ---- Code --------------------------------------------------------------- */
+code, pre, kbd {
+  background: var(--bg-alt) !important;
+  color: var(--accent-2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+::selection { background: var(--accent); color: var(--bg); }
+
+/* =========================================================================
+   Home page (index.md)
+   ========================================================================= */
 .centered-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 80vh; /* Adjust as needed */
-    text-align: center;
-    font-size: 1.1rem;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  min-height: 60vh; text-align: center;
+  font-size: 1.05rem; line-height: 1.75;
+}
+.centered-page img[alt="Profile Photo"] {
+  border-radius: 0 !important;
+  border: 1px solid var(--border) !important;
+  filter: grayscale(35%);
+}
+.centered-page .drac-box,
+.centered-page > div:last-of-type > div {
+  background: var(--bg-alt) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: var(--fg) !important;
+  font-family: Georgia, serif !important;
+}
+
+/* =========================================================================
+   Blog list — RSS-reader style feed items
+   ========================================================================= */
+.blog-list { max-width: 760px; margin: 1.5rem auto; }
+.blog-card {
+  display: block;
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0.25rem;
+  text-decoration: none !important;
+}
+.blog-card:hover { background: var(--bg-alt); text-decoration: none !important; }
+.blog-card .blog-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--fg-dim) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.blog-card .blog-title {
+  display: block;
+  color: var(--link) !important;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 1.12rem;
+  margin: 0.2rem 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.blog-card:hover .blog-title { color: var(--accent) !important; }
+.blog-card .blog-brief { color: var(--fg) !important; font-size: 0.95rem; margin: 0; }
+
+/* =========================================================================
+   Paint-palette colour chooser (built by palette.js) — top-right, always on
+   ========================================================================= */
+#palette-chooser {
+  position: fixed;
+  top: 64px;
+  right: 18px;
+  z-index: 9999;
+  width: 110px;
+  height: 86px;
+  background: var(--bg-alt);
+  border: 2px solid var(--border);
+  /* organic artist's-palette blob */
+  border-radius: 56% 60% 58% 62% / 64% 60% 64% 56%;
+  box-shadow: 2px 3px 0 var(--border);
+}
+/* the thumb hole */
+#palette-chooser::after {
+  content: "";
+  position: absolute;
+  width: 16px; height: 16px;
+  right: 12px; bottom: 12px;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 50%;
+}
+#palette-chooser .pc-dots {
+  position: absolute;
+  inset: 0;
+  padding: 12px 14px;
+}
+#palette-chooser .pc-swatch {
+  position: absolute;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,0.35);
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  transition: transform 0.1s;
+}
+#palette-chooser .pc-swatch:hover { transform: scale(1.18); }
+#palette-chooser .pc-swatch[aria-pressed="true"] {
+  outline: 2px solid var(--fg);
+  outline-offset: 1px;
+}
+/* dab the four paint blobs around the palette */
+#palette-chooser .pc-swatch:nth-child(1) { top: 14px; left: 16px; }
+#palette-chooser .pc-swatch:nth-child(2) { top: 12px; left: 50px; }
+#palette-chooser .pc-swatch:nth-child(3) { top: 40px; left: 14px; }
+#palette-chooser .pc-swatch:nth-child(4) { top: 42px; left: 46px; }
+
+#palette-chooser .pc-swatch[data-palette="classic"] { background: #f4f1e8; }
+#palette-chooser .pc-swatch[data-palette="green"]   { background: #33ff66; }
+#palette-chooser .pc-swatch[data-palette="amber"]   { background: #ffb000; }
+#palette-chooser .pc-swatch[data-palette="blue"]    { background: #5fa8ff; }
+
+@media (max-width: 760px) {
+  #palette-chooser { top: auto; bottom: 16px; right: 12px; }
+}
+
+/* =========================================================================
+   Fix leftover dracula chrome so light + dark palettes stay consistent
+   ========================================================================= */
+
+/* ---- Left sidebar: match the palette instead of hard black ------------- */
+nav.sidebar,
+.sidebar.drac-bg-black {
+  background: var(--bg-alt) !important;
+  border-right: 1px solid var(--border) !important;
+}
+.sidebar h1,
+.sidebar .drac-text-center,
+.sidebar h1 .logo,
+.sidebar h1 .logo span {
+  color: var(--accent) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+.sidebar ul li a {
+  color: var(--fg) !important;
+  border-bottom: 1px solid var(--border) !important;
+  text-decoration: none !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+.sidebar ul li a:hover { color: var(--accent) !important; text-decoration: underline !important; }
+.sidebar .drac-box { background: transparent !important; border: 0 !important; }
+
+/* The decorative coloured square row under the name — drop it for cleanliness */
+.dot-ul { display: none !important; }
+
+/* ---- Hamburger toggle: remove the rotated coloured diamond ------------- */
+.custom-menu .btn.btn-primary:after { display: none !important; }
+.custom-menu .btn,
+.custom-menu .btn.btn-primary {
+  background: var(--bg-alt) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  width: 44px !important;
+  height: 44px !important;
+}
+.custom-menu .btn i { color: var(--accent) !important; }
+
+/* The thin sidebar/content divider */
+.divider, nav.divider, .divider.drac-bg-purple-cyan {
+  background: var(--border) !important;
+  background-image: none !important;
+}
+
+/* ---- Previous / Next / Search: keep them on one tidy row --------------- */
+.row.row-preview {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
+  gap: 10px;
+  margin: 0 0 1rem 0;
+}
+.row.row-preview > .col {
+  flex: 1 1 0;
+  padding: 0 !important;
+  max-width: none !important;
+}
+.row.row-preview .search-box { flex: 1 1 0; display: flex; }
+.btn-preview,
+.btn-preview:disabled { width: 100% !important; }
+.search-box .drac-input { width: 100% !important; }
+
+/* ---- Hide the "Made with Dracula Theme for MkDocs" credit bar ---------- */
+.border-top.drac-bg-cyan-green { display: none !important; }
+
+/* =========================================================================
+   Social links (home page) — plain text, bracketed, palette-aware
+   ========================================================================= */
+.socials {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.4rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+}
+.socials a {
+  color: var(--link) !important;
+  text-decoration: none !important;
+}
+.socials a::before { content: "["; color: var(--fg-dim); }
+.socials a::after  { content: "]"; color: var(--fg-dim); }
+.socials a:hover { color: var(--accent) !important; text-decoration: underline !important; }
+
+/* =========================================================================
+   Sidebar layout polish + button consistency
+   ========================================================================= */
+.sidebar .p-4 { padding: 1.5rem 1.25rem !important; }
+.sidebar h1, .sidebar .drac-text-center {
+  font-size: 1.2rem !important;
+  margin-bottom: 1.25rem !important;
+  letter-spacing: 0.02em;
+}
+.sidebar ul { margin-bottom: 0 !important; }
+.sidebar ul li a {
+  padding: 0.55rem 0.25rem !important;
+  margin: 0 !important;
+  font-size: 0.9rem !important;
+}
+.sidebar ul li:last-child a { border-bottom: 0 !important; }
+
+/* Unify every button (prev/next/search) to one clean style */
+.btn, .drac-btn, .btn-primary, .btn-preview {
+  background: var(--bg-alt) !important;
+  color: var(--accent) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 0 !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.85rem !important;
+  text-transform: lowercase !important;
+  padding: 0.6rem 0.9rem !important;
+  box-shadow: none !important;
+  transition: border-color 0.12s, color 0.12s;
+}
+.btn:hover, .drac-btn:hover, .btn-primary:hover, .btn-preview:hover {
+  border-color: var(--accent) !important;
+  color: var(--accent-2) !important;
+  background: var(--bg-alt) !important;
+}
+.btn-preview.disabled, .btn-preview:disabled {
+  opacity: 0.45 !important;
+  color: var(--fg-dim) !important;
 }

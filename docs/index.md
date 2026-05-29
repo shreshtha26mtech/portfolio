@@ -24,30 +24,14 @@
     <strong>playing chess</strong>.
   </p>
 
-  <!-- Socials Card -->
-  <div style="margin-top: 40px; display: flex; justify-content: center; align-items: center;">
-    <div style="background-color: #2c2f48; border-radius: 16px; padding: 32px 40px; max-width: 500px; width: 100%; box-shadow: 0 8px 20px rgba(0,0,0,0.2); text-align: center; font-family: 'Segoe UI', sans-serif; color: #e0e0e0;">
-
-      <div style="display: flex; justify-content: center; gap: 28px;">
-        <a href="mailto:modishreshtha48@gmail.com" target="_blank" title="Email">
-          <img src="https://img.icons8.com/ios-filled/30/000000/email.png" alt="Email">
-        </a>
-        <a href="https://linkedin.com/in/shreshthamodi" target="_blank" title="LinkedIn">
-          <img src="https://img.icons8.com/ios-filled/30/0A66C2/linkedin.png" alt="LinkedIn">
-        </a>
-        <a href="https://github.com/shreshtha48" target="_blank" title="GitHub">
-          <img src="https://img.icons8.com/ios-filled/30/000000/github.png" alt="GitHub">
-        </a>
-        <a href="https://www.kaggle.com/shreshthamodi" target="_blank" title="Kaggle">
-         <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Kaggle_logo.png" alt="Kaggle"style="height: 28px; vertical-align: middle; border-radius: 4px;">
-        </a>
-
-        <a href="https://shreshtha.hashnode.dev/" target="_blank" title="Blog" style="font-size: 24px; text-decoration: none; color: #e0e0e0;">
-          📝
-        </a>
-      </div>
-    </div>
-  </div>
+  <!-- Socials: plain text links that adapt to the active palette -->
+  <nav class="socials">
+    <a href="mailto:modishreshtha48@gmail.com">email</a>
+    <a href="https://linkedin.com/in/shreshthamodi" target="_blank">linkedin</a>
+    <a href="https://github.com/shreshtha48" target="_blank">github</a>
+    <a href="https://www.kaggle.com/shreshthamodi" target="_blank">kaggle</a>
+    <a href="https://shreshtha.hashnode.dev/" target="_blank">blog</a>
+  </nav>
 </div>
 
 <!-- Wave animation -->

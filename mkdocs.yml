@@ -10,9 +10,13 @@ nav:
   - Education: education.md
   - Experience: experience.md
   - Projects: project.md
-  - Additional Info: info.md
- 
+  - Blog: blog.md
+  - Skills: skills.md
+
 
 extra_css:
   - styles/extra.css
+
+extra_javascript:
+  - styles/palette.js
 
