@@ -13,7 +13,7 @@
     <strong>Machine Learning/NLP</strong>, 
     <strong>Optimization</strong>, and 
     <strong>Randomized Numerical Linear Algebra</strong>.
-    I'm interested in building systems that solve problems related to
+    I'm interested in building solutions that make real-world impact, particularly for
     <strong>poverty</strong> and
     <strong>child labour</strong>.
   </p>

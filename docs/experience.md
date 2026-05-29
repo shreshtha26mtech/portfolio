@@ -1,3 +1,6 @@
+### Machine Learning Engineer - Zettaquant (Jan 2026- Present)
+- Developing end to end agentic solutions using financial data such as earnings calls, central bank meeting minutes, bis settlment data
+- Responsible for setting up and maintaining data pipelines, preprocessing data, building agents 
 
 ### Cloud Developer Intern – Eternal Soft Solutions (2023)  
 - Worked on a project that uses AWS and ARX to build a pipeline that automates the data anonymization process  

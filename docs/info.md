@@ -17,8 +17,8 @@
 
 ## 💻 Technical Skills
 
-- **Languages:** Python, R, HTML/CSS  
-- **Developer Tools:** Git, Docker, VS Code, Jupyter Notebooks, Notion, Unix  
-- **Cloud & Deployment:** AWS, CI/CD pipelines  
-- **Documentation & Communication:** Prompt Engineering, Technical Documentation  
+- **Languages:** Python, R, HTML/CSS , Rust 
+- **Developer Tools:** Langchain, Langgraph, VectorDB, Model finetuneing, RAG,Git, Docker, VS Code, Jupyter Notebooks, Notion, Unix ,bash 
+- **Cloud & Deployment:** AWS, GCP CI/CD pipelines  
+- **Documentation & Communication:** Prompt Engineering, Technical Documentation 
 
